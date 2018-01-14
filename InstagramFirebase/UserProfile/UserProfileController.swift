@@ -82,7 +82,6 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     
     private func setupLogoutButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogout))
-        
     }
     
     @objc func handleLogout() {
