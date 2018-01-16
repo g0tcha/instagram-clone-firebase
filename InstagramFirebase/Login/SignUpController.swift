@@ -147,7 +147,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                     
                     self.dismiss(animated: true, completion: nil)
                 })
-                
             })
             
         })
