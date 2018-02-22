@@ -18,9 +18,11 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     var selectedImage: UIImage?
     var assets = [PHAsset]()
     
+    var header: PhotoSelectorHeader?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = UIColor.yellow
+        collectionView?.backgroundColor = UIColor.white
         
         setupNavigationButtons()
         
@@ -62,7 +64,7 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     
     private func assetsFetchOptions() -> PHFetchOptions {
         let fetchOptions = PHFetchOptions()
-        fetchOptions.fetchLimit = 15
+        fetchOptions.fetchLimit = 30
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
         fetchOptions.sortDescriptors = [sortDescriptor]
         return fetchOptions
@@ -79,6 +81,9 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! PhotoSelectorHeader
+        
+        self.header = header
+        
         header.photoImageView.image = selectedImage
         
         let imageManager = PHImageManager.default()
@@ -124,6 +129,9 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedImage = images[indexPath.item]
         self.collectionView?.reloadData()
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -141,7 +149,9 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     }
     
     @objc func handleNext() {
-        print("Handling Next")
+        let sharePhotoController = SharePhotoController()
+        sharePhotoController.selectedImage = header?.photoImageView.image
+        navigationController?.pushViewController(sharePhotoController, animated: true)
     }
     
 }
