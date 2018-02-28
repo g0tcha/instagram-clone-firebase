@@ -14,6 +14,8 @@
 		BF25DD061FC0BD5B0095F9BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF25DD041FC0BD5B0095F9BC /* Main.storyboard */; };
 		BF25DD081FC0BD5B0095F9BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF25DD071FC0BD5B0095F9BC /* Assets.xcassets */; };
 		BF25DD0B1FC0BD5B0095F9BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF25DD091FC0BD5B0095F9BC /* LaunchScreen.storyboard */; };
+		BF51CB49204733A8008E807D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF51CB48204733A8008E807D /* Post.swift */; };
+		BF51CB4B2047356E008E807D /* UserProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF51CB4A2047356E008E807D /* UserProfilePhotoCell.swift */; };
 		BF63014D1FC5F8850066B7D9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF63014C1FC5F8850066B7D9 /* MainTabBarController.swift */; };
 		BF63014F1FC5F9670066B7D9 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF63014E1FC5F9670066B7D9 /* UserProfileController.swift */; };
 		BF6301521FC6002A0066B7D9 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6301511FC6002A0066B7D9 /* UserProfileHeader.swift */; };
@@ -38,6 +40,8 @@
 		BF25DD071FC0BD5B0095F9BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF25DD0A1FC0BD5B0095F9BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF25DD0C1FC0BD5B0095F9BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF51CB48204733A8008E807D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BF51CB4A2047356E008E807D /* UserProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePhotoCell.swift; sourceTree = "<group>"; };
 		BF63014C1FC5F8850066B7D9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		BF63014E1FC5F9670066B7D9 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		BF6301511FC6002A0066B7D9 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 		BF25DCFF1FC0BD5B0095F9BC /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				BF51CB472047339D008E807D /* Model */,
 				BF6FA63A200E8812001F630F /* AddPhoto */,
 				BFA123711FCC9B0B006E56A7 /* Login */,
 				BF6301501FC600160066B7D9 /* UserProfile */,
@@ -123,11 +128,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BF51CB472047339D008E807D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF51CB48204733A8008E807D /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BF6301501FC600160066B7D9 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
 				BF63014E1FC5F9670066B7D9 /* UserProfileController.swift */,
 				BF6301511FC6002A0066B7D9 /* UserProfileHeader.swift */,
+				BF51CB4A2047356E008E807D /* UserProfilePhotoCell.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -279,7 +293,9 @@
 				BF786351203F6D580085CCF8 /* SharePhotoController.swift in Sources */,
 				BF25DD031FC0BD5B0095F9BC /* SignUpController.swift in Sources */,
 				BFFC3E07203611E30060BDC5 /* PhotoSelectorCell.swift in Sources */,
+				BF51CB49204733A8008E807D /* Post.swift in Sources */,
 				BF0705621FC1EA4E00E91073 /* Extensions.swift in Sources */,
+				BF51CB4B2047356E008E807D /* UserProfilePhotoCell.swift in Sources */,
 				BF63014D1FC5F8850066B7D9 /* MainTabBarController.swift in Sources */,
 				BF6301521FC6002A0066B7D9 /* UserProfileHeader.swift in Sources */,
 				BF63014F1FC5F9670066B7D9 /* UserProfileController.swift in Sources */,
