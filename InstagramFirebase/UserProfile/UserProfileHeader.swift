@@ -13,13 +13,16 @@ class UserProfileHeader: UICollectionViewCell {
     
     var user: User? {
         didSet {
-            setupProfileImage()
+            guard let profileImageUrl = user?.profileImageUrl else {
+                return
+            }
+            profileImageView.loadImage(urlString: profileImageUrl)
             usernameLabel.text = user?.username
         }
     }
     
-    let profileImageView: UIImageView = {
-       let iv = UIImageView()
+    let profileImageView: CustomImageView = {
+       let iv = CustomImageView()
         iv.backgroundColor = .red
         return iv
     }()
@@ -27,7 +30,8 @@ class UserProfileHeader: UICollectionViewCell {
     let gridButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "grid"), for: .normal)
-        button.tintColor = UIColor(white: 0, alpha: 0.2)
+//        button.tintColor = UIColor(white: 0, alpha: 0.2)
+        button.tintColor = UIColor.rgb(red: 46, green: 134, blue: 243)
         return button
     }()
     
@@ -118,31 +122,6 @@ class UserProfileHeader: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupProfileImage() {
-        guard let profileImageUrl = user?.profileImageUrl else { return }
-        guard let url = URL(string: profileImageUrl) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // check for the error, then construct the image using data
-            if let err = error {
-                print("Failed to fetch profile image:", err)
-                return
-            }
-            
-            // check for response status of 200 (HTTP OK)
-            
-            guard let data = data else { return }
-            
-            let image = UIImage(data: data)
-            
-            // need to get back onto the main UI thread
-            DispatchQueue.main.async {
-                self.profileImageView.image = image
-            }
-            
-            }.resume()
     }
     
     private func setupBottomToolbar() {
