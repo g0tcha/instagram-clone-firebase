@@ -14,6 +14,7 @@
 		BF25DD061FC0BD5B0095F9BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF25DD041FC0BD5B0095F9BC /* Main.storyboard */; };
 		BF25DD081FC0BD5B0095F9BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF25DD071FC0BD5B0095F9BC /* Assets.xcassets */; };
 		BF25DD0B1FC0BD5B0095F9BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF25DD091FC0BD5B0095F9BC /* LaunchScreen.storyboard */; };
+		BF4A6174208BB74A006B7E96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A6173208BB74A006B7E96 /* User.swift */; };
 		BF51CB49204733A8008E807D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF51CB48204733A8008E807D /* Post.swift */; };
 		BF51CB4B2047356E008E807D /* UserProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF51CB4A2047356E008E807D /* UserProfilePhotoCell.swift */; };
 		BF63014D1FC5F8850066B7D9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF63014C1FC5F8850066B7D9 /* MainTabBarController.swift */; };
@@ -43,6 +44,7 @@
 		BF25DD071FC0BD5B0095F9BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF25DD0A1FC0BD5B0095F9BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF25DD0C1FC0BD5B0095F9BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF4A6173208BB74A006B7E96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF51CB48204733A8008E807D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BF51CB4A2047356E008E807D /* UserProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePhotoCell.swift; sourceTree = "<group>"; };
 		BF63014C1FC5F8850066B7D9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				BF51CB48204733A8008E807D /* Post.swift */,
+				BF4A6173208BB74A006B7E96 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				BF51CB49204733A8008E807D /* Post.swift in Sources */,
 				BF0705621FC1EA4E00E91073 /* Extensions.swift in Sources */,
 				BF51CB4B2047356E008E807D /* UserProfilePhotoCell.swift in Sources */,
+				BF4A6174208BB74A006B7E96 /* User.swift in Sources */,
 				BF63014D1FC5F8850066B7D9 /* MainTabBarController.swift in Sources */,
 				BF6301521FC6002A0066B7D9 /* UserProfileHeader.swift in Sources */,
 				BF63014F1FC5F9670066B7D9 /* UserProfileController.swift in Sources */,

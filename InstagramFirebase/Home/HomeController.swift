@@ -27,18 +27,28 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     private func fetchPosts() {
         guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
-        let ref = FIRDatabase.database().reference().child("posts").child(uid)
-        ref.observeSingleEvent(of: .value, with: { snapshot in
-            guard let dictionaries = snapshot.value as? [String: Any] else { return }
-            dictionaries.forEach({ (key, value) in
-                guard let dictionary = value as? [String: Any] else { return }
-                let post = Post(dictionary: dictionary)
-                self.posts.append(post)
-            })
+        
+        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { snapshot in
+            guard let userDictionary = snapshot.value as? [String: Any] else { return }
+            let user = User(dictionary: userDictionary)
             
-            self.collectionView?.reloadData()
-        }) { (err) in
-            print("Failed to fetch posts:", err)
+            let ref = FIRDatabase.database().reference().child("posts").child(uid)
+            ref.observeSingleEvent(of: .value, with: { snapshot in
+                guard let dictionaries = snapshot.value as? [String: Any] else { return }
+                dictionaries.forEach({ (key, value) in
+                    guard let dictionary = value as? [String: Any] else { return }
+                    
+                    let post = Post(user: user, dictionary: dictionary)
+                    self.posts.append(post)
+                })
+                
+                self.collectionView?.reloadData()
+            }) { (err) in
+                print("Failed to fetch posts:", err)
+            }
+            
+        }) { err in
+            print("Failed to fetch user for posts: ", err)
         }
     }
     
@@ -47,7 +57,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: view.frame.width, height: 200)
+        var height: CGFloat = 40 + 8 + 8
+        height += view.frame.width
+        height += 50
+        height += 60
+        
+        return CGSize(width: view.frame.width, height: height)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
